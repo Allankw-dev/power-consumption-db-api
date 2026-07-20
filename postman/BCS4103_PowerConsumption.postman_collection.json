@@ -1,0 +1,83 @@
+{
+  "info": {
+    "name": "BCS 4103 - Power Consumption DB API",
+    "description": "CRUD + reporting endpoints for the UCI Household Power Consumption project (Advanced Database Systems, July 2026)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:3000" }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "item": [
+        { "name": "Health check", "request": { "method": "GET", "url": "{{baseUrl}}/health" } }
+      ]
+    },
+    {
+      "name": "Zones",
+      "item": [
+        { "name": "List zones", "request": { "method": "GET", "url": "{{baseUrl}}/api/zones" } },
+        { "name": "Get zone by id", "request": { "method": "GET", "url": "{{baseUrl}}/api/zones/1" } },
+        {
+          "name": "Create zone",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{baseUrl}}/api/zones",
+            "body": { "mode": "raw", "raw": "{\n  \"zone_name\": \"Garage\",\n  \"description\": \"EV charger circuit\"\n}" }
+          }
+        },
+        {
+          "name": "Update zone",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{baseUrl}}/api/zones/4",
+            "body": { "mode": "raw", "raw": "{\n  \"description\": \"Updated description\"\n}" }
+          }
+        },
+        { "name": "Delete zone", "request": { "method": "DELETE", "url": "{{baseUrl}}/api/zones/4" } }
+      ]
+    },
+    {
+      "name": "Readings",
+      "item": [
+        { "name": "List readings", "request": { "method": "GET", "url": "{{baseUrl}}/api/readings?limit=25&offset=0" } },
+        { "name": "List readings for a date", "request": { "method": "GET", "url": "{{baseUrl}}/api/readings?date=2007-01-15" } },
+        { "name": "Get reading with zone breakdown", "request": { "method": "GET", "url": "{{baseUrl}}/api/readings/1" } },
+        {
+          "name": "Create reading",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{baseUrl}}/api/readings",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reading_date\": \"2026-07-19\",\n  \"reading_time\": \"12:00:00\",\n  \"global_active_power\": 1.5,\n  \"global_reactive_power\": 0.1,\n  \"voltage\": 235,\n  \"global_intensity\": 6.5,\n  \"sub_metering_1\": 0,\n  \"sub_metering_2\": 1,\n  \"sub_metering_3\": 5\n}"
+            }
+          }
+        },
+        {
+          "name": "Update reading",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{baseUrl}}/api/readings/1",
+            "body": { "mode": "raw", "raw": "{\n  \"voltage\": 236.5\n}" }
+          }
+        },
+        { "name": "Delete reading", "request": { "method": "DELETE", "url": "{{baseUrl}}/api/readings/1" } }
+      ]
+    },
+    {
+      "name": "Reports (stored procedures)",
+      "item": [
+        { "name": "Total consumption for date range", "request": { "method": "GET", "url": "{{baseUrl}}/api/reports/total-consumption?start=2006-12-16&end=2007-01-31" } },
+        { "name": "Daily average", "request": { "method": "GET", "url": "{{baseUrl}}/api/reports/daily-average?date=2006-12-23" } },
+        { "name": "Top consumption days", "request": { "method": "GET", "url": "{{baseUrl}}/api/reports/top-consumption-days?limit=10" } },
+        { "name": "Zone consumption breakdown", "request": { "method": "GET", "url": "{{baseUrl}}/api/reports/zone-consumption?start=2006-12-16&end=2007-01-31" } }
+      ]
+    }
+  ]
+}

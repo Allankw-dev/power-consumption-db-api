@@ -1,0 +1,21 @@
+=== BEFORE INDEX on reading_date ===
+                                                      QUERY PLAN                                                       
+-----------------------------------------------------------------------------------------------------------------------
+ Aggregate  (cost=1685.27..1685.29 rows=1 width=32) (actual time=623.081..623.083 rows=1 loops=1)
+   ->  Seq Scan on readings  (cost=0.00..1632.01 rows=21302 width=6) (actual time=213.946..617.062 rows=21599 loops=1)
+         Filter: ((reading_date >= '2007-01-01'::date) AND (reading_date <= '2007-01-15'::date))
+         Rows Removed by Filter: 38402
+ Planning Time: 136.038 ms
+ Execution Time: 653.819 ms
+(6 rows)
+
+=== AFTER INDEX on reading_date ===
+                                                                 QUERY PLAN                                                                  
+---------------------------------------------------------------------------------------------------------------------------------------------
+ Aggregate  (cost=839.57..839.58 rows=1 width=32) (actual time=32.089..32.091 rows=1 loops=1)
+   ->  Index Scan using idx_readings_date on readings  (cost=0.29..785.09 rows=21790 width=6) (actual time=2.570..28.627 rows=21599 loops=1)
+         Index Cond: ((reading_date >= '2007-01-01'::date) AND (reading_date <= '2007-01-15'::date))
+ Planning Time: 4.144 ms
+ Execution Time: 33.066 ms
+(5 rows)
+
