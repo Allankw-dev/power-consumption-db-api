@@ -99,15 +99,15 @@ Import `postman/BCS4103_PowerConsumption.postman_collection.json`. The `baseUrl`
 
 | Method | Path | Description |
 |---|---|---|
-| GET | `/health` | DB connectivity check |
-| GET/POST | `/api/zones` | List / create metering zones |
-| GET/PUT/DELETE | `/api/zones/:id` | Read / update / delete a zone |
-| GET/POST | `/api/readings` | List (optionally `?date=`) / create readings |
-| GET/PUT/DELETE | `/api/readings/:id` | Read (with per-zone breakdown) / update / delete |
-| GET | `/api/reports/total-consumption?start=&end=` | Calls `calculate_total_consumption` |
-| GET | `/api/reports/daily-average?date=` | Calls `daily_average` |
-| GET | `/api/reports/top-consumption-days?limit=` | Calls `top_consumption_days` |
-| GET | `/api/reports/zone-consumption?start=&end=` | Calls `zone_consumption` |
+| GET | ` | DB connectivity check |
+| GET/POST | `/ | List / create metering zones |
+| GET/PUT/DELETE | `` | Read / update / delete a zone |
+| GET/POST |  | List (optionally `?date=`) / create readings |
+| GET/PUT/DELETE | ` | Read (with per-zone breakdown) / update / delete |
+| GET | ` | Calls `calculate_total_consumption` |
+| GET | ` | Calls `daily_average` |
+| GET | `| Calls `top_consumption_days` |
+| GET | `| Calls `zone_consumption` |
 
 ## Verified — against the live OCI deployment, not just locally
 
