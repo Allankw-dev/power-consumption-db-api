@@ -121,7 +121,7 @@ Import `postman/BCS4103_PowerConsumption.postman_collection.json`. The `baseUrl`
 
 ## Team
 
-_Add group member names and roles here before submission._
+
 
 ## Security notes
 
