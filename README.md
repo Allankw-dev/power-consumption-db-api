@@ -39,8 +39,8 @@ docs/
 | Component | Detail |
 |---|---|
 | VCN | `power-db-vcn`, CIDR `10.0.0.0/16` |
-| Public subnet | `10.0.0.0/24` — hosts the compute instance |
-| Private subnet | `10.0.1.0/24` — hosts the database, no direct internet access |
+| Public subnet |  — hosts the compute instance |
+| Private subnet | `` — hosts the database, no direct internet access |
 | Database system | `power-db-system`, PostgreSQL, private IP `10.0.1.201` |
 | Compute instance | `power-api-host`, Oracle Linux, public IP `92.4.133.3` |
 | Process manager | pm2 (`power-api` process) — keeps the API running and auto-restarts on crash |
