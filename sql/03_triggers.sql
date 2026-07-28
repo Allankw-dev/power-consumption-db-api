@@ -24,7 +24,7 @@ FOR EACH ROW
 EXECUTE FUNCTION fn_validate_reading();
 
 
--- 2. Auto-normalize sub-metering columns into sub_metering_readings.
+-- 2. Auto-normalize sub-metering columns into sub_metering_readings
 --    This is the "automate routine tasks" trigger — callers only ever
 --    insert into the wide `readings` row; the per-zone breakdown is
 --    generated for them.
