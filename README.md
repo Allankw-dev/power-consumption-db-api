@@ -2,7 +2,7 @@
 
 A PostgreSQL-backed CRUD API over the UCI **Individual Household Electric Power Consumption** dataset, built with Node.js/Express, **deployed and live on Oracle Cloud Infrastructure (OCI)**.
 
-## 🟢 Live deployment.'
+## 🟢 Live deployment.
 
 - **API base URL:** `http://92.4.133.3:3000`
 - **Health check:** [http://92.4.133.3:3000/health](http://92.4.133.3:3000/health) → should return `{"db":"connected"}`
