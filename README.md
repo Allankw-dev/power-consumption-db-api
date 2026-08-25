@@ -10,7 +10,7 @@ A PostgreSQL-backed CRUD API over the UCI **Individual Household Electric Power 
 
 Postman collection is already pointed at this URL — just import and go, no setup required to try it.
 
-## Why this dataset..
+## Why this dataset.
 
 Real minute-level power sensor readings from a single household near Paris, France, December 2006 – November 2010 (2,075,259 raw rows — far past the 10,000-record minimum). It's a genuinely different modeling challenge from a typical e-commerce dataset: a dense time series with a natural fact-table + rollup design, which gives the triggers and stored procedures real work to do (per-minute → per-zone breakdown, per-minute → per-day rollups).
 
