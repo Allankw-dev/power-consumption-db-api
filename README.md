@@ -1,4 +1,4 @@
-# Power Consumption DB API — BCS 4103 Advanced Database Systems Project..
+# Power Consumption DB API — BCS 4103 Advanced Database Systems Project.
 
 A PostgreSQL-backed CRUD API over the UCI **Individual Household Electric Power Consumption** dataset, built with Node.js/Express, **deployed and live on Oracle Cloud Infrastructure (OCI)**.
 
